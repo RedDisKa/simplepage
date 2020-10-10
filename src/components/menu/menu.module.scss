@@ -1,0 +1,40 @@
+@import '../../global.scss';
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_item {
+    @extend %button;
+    color: $lightest-grey;
+    height: 19px;
+    padding: 0px 14px;
+    margin: 0px 24px 16px 26px;
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    background-color: $button-grey;
+    height: 35px;
+    margin: 0px 24px 16px;
+    border-radius: 2px;
+}
+
+.menu_subtitle {
+    @extend %subtitle;
+    color: $light-grey;
+    margin: 18px 24px 7px;
+    padding: 8px 16px;
+}
+
+.buttons_container {
+    margin: 30px 24px 0px 26px;
+    display: flex;
+    flex-direction: column;
+
+    & > button + button {
+        margin-top: 13px;
+    }
+}

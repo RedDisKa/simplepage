@@ -1,0 +1,86 @@
+@import '../../global.scss';
+
+.list_container {
+    margin-top: 34px;
+}
+
+.list_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.list_title {
+    @extend %title;
+    color: $lightest-grey;
+}
+
+.description_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+
+.list_description {
+    @extend %regular;
+    color: $light-grey;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+
+    & > li {
+        list-style-type: none;
+        margin-left: 0px;
+        margin-right: 39px;
+    }
+
+    & > li:nth-child(n+1) {
+        margin-top: 39px;
+    }
+}
+
+.item_content {
+    width: 345px;
+    height: 200px;
+    background-color: $black;
+}
+
+.item_title {
+    @extend %regular;
+    color: $lightest-grey;
+    margin-top: 11px;
+}
+
+.item_description {
+    @extend %regular;
+    color: $light-grey;
+    margin-top: -1px;
+}
+
+@media screen and (min-width: 1920px) {
+    .list {
+        & > li:nth-child(n+1) {
+            margin-top: unset;
+        }
+
+        & > li:nth-child(n+5) {
+            margin-top: 39px;
+        }
+
+        & > li:nth-child(4n+2) {
+            margin-right: 40px;
+        }
+    
+        & > li:nth-child(2n+1) {
+            margin-right: 39px;
+        }
+
+        & > li:nth-child(4n) {
+            margin-right: 0px;
+        }
+    }
+  }

@@ -1,0 +1,74 @@
+
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'),
+        url(/fonts/Poppins-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: local('Poppins-SemiBold'),
+        url(/fonts/Poppins-SemiBold.ttf) format('truetype');
+}
+
+// colors
+$black: #0B0B0B;
+$darkest-grey: #151616;
+$dark-grey: #232424;
+$button-grey: #303133;
+$grey: #707070;
+$light-grey: #A5A7AB;
+$light-grey30: rgba(165, 167, 171, .3);
+$lightest-grey: #ECF0F4;
+$white: #FFFFFF;
+$blue: #046EFF;
+
+// font sizes
+$font-size-extra-small: 10px;
+$font-size-small: 11px;
+$font-size-regular: 13px;
+$font-size-medium: 16px;
+$font-size-large: 20px;
+
+%regular {
+    font-family: Poppins;
+    font-size: $font-size-regular;
+    line-height: 20px;
+}
+
+%title {
+    font-family: Poppins;
+    font-size: $font-size-large;
+    line-height: 30px;
+}
+
+%button {
+    font-family: Poppins-SemiBold;
+    font-size: $font-size-regular;
+    line-height: 20px;
+}
+
+%logo_title {
+    font-family: Poppins-SemiBold;
+    font-size: $font-size-medium;
+    line-height: 25px;
+}
+
+%small {
+    font-family: Poppins;
+    font-size: $font-size-small;
+    line-height: 17px;
+}
+
+%extra-small {
+    font-family: Poppins-SemiBold;
+    font-size: $font-size-extra-small;
+    line-height: 16px;
+}
+
+%subtitle {
+    font-family: Poppins-SemiBold;
+    font-size: $font-size-small;
+    line-height: 17px;
+    text-transform: uppercase;
+}

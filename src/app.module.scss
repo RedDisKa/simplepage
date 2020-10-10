@@ -1,0 +1,125 @@
+@import './global.scss';
+
+.app {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.menu_panel {
+    background-color: $dark-grey;
+    min-width: 272px;
+}
+
+.logo_container {
+    display: flex;
+    margin: 37px 24px 50px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $darkest-grey;
+    @extend %logo_title;
+    color: $light-grey;
+    padding: 12px 8px;
+}
+
+.logo_description_container {
+    margin-left: 18px;
+    margin-top: 4px;
+}
+
+.logo_title {
+    @extend %regular;
+    color: $lightest-grey;
+}
+
+.logo_description {
+    @extend %regular;
+    color: $light-grey;
+}
+
+.main_panel {
+    background-color: $darkest-grey;
+    flex: 1;
+    padding: 0 40px;
+}
+
+.right_panel {
+    background-color: $dark-grey;
+    min-width: 70px;
+}
+
+.avatar_icon {
+    padding: 15px 14px;
+}
+
+.learn_more_container {
+    display: flex;
+    cursor: pointer;
+}
+
+.learn_more {
+    @extend %regular;
+    color: $lightest-grey;
+    margin-right: 8px;
+}
+
+.learn_more_arrow {
+    height: 11px;
+    margin-top: 4px;
+}
+
+.recent_projects_container {
+    margin-top: 68px;
+    margin-bottom: 20px;
+
+    & > div {
+        margin-left: -1px;
+    }
+
+    & > div > div:first-child > div {
+        margin-bottom: 31px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .recent_projects_container {
+        & > div > ul > li > div:first-child {
+            width: 348px;
+        }
+
+        & > div > ul > li:nth-child(2n+1) {
+            margin-right: 36px;
+        }
+    
+        & > div > ul > li:nth-child(4n+2) {
+            margin-right: 35px;
+        }
+    
+        & > div > ul > li:nth-child(4n) {
+            margin-right: 0px;
+        }
+    
+        & > div > ul > li:nth-child(n+5) {
+            margin-top: 39px;
+        }
+    }
+}
+
+.small_logo {
+    @extend %extra-small;
+    color: $light-grey;
+    position: absolute;
+    bottom: 26px;
+    left: 28px;
+    width: 36px;
+    padding: 8px 0px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151616;
+}

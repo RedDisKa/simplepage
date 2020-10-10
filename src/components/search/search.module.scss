@@ -1,0 +1,40 @@
+@import '../../global.scss';
+
+.search_container {
+    display: flex;
+}
+
+.search_title {
+    @extend %regular;
+    color: $light-grey;
+    margin-right: 16px;
+}
+
+.search_input {
+    width: 155px;
+    height: 20px;
+    @extend %regular;
+    color: $light-grey;
+    background-color: inherit;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $light-grey30;
+    padding: 0px 14px 3px 0px;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &::placeholder {
+        @extend %small;
+        color: $light-grey;
+    }
+}
+
+.search_icon {
+    height: 13px;
+    margin-left: -13px;
+    margin-top: 4px;
+    margin-right: 3px;
+}

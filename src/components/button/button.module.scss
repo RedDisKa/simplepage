@@ -1,0 +1,21 @@
+@import '../../global.scss';
+
+.button {
+    @extend %button;
+    width: 113px;
+    height: 35px;
+    color: $white;
+    background-color: $button-grey;
+    border: none;
+    box-shadow: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.button:focus {
+    outline:0;
+}
+
+.positive {
+    background-color: $blue;
+}
