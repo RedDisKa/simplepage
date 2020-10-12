@@ -1,0 +1,90 @@
+@import '../../global.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: $darkest-grey;
+}
+
+.header {
+    width: 100%;
+    height: 37px;
+    background-color: $dark-grey;
+    margin-bottom: 2px;
+    position: relative;
+    padding-left: 1px;
+}
+
+.desc_container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.left_panel {
+    background-color: $dark-grey;
+    min-width: 209px;
+    padding: 15px 24px;
+}
+
+.list_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    margin: 16px -2px 63px 0px;
+
+    & > div + div {
+        margin-top: 8px;
+    }
+}
+
+.add_button {
+    background: inherit;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    margin-right: -7px;
+}
+
+.desc {
+    background-color: $darkest-grey;
+    flex: 1;
+}
+
+.info_panel {
+    min-width: 209px;
+    background-color: $dark-grey;
+    padding: 15px 24px;
+}
+
+.title {
+    @extend %subtitle;
+    color: $light-grey;
+}
+
+%dropdown {
+    @extend %small;
+    color: $light-grey;
+    background-color: inherit;
+    border: none;
+    outline: 0;
+    position: absolute;
+}
+
+.title_dropdown {
+    @extend %dropdown;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scale_dropdown {
+    @extend %dropdown;
+    justify-self: flex-end;
+    top: 50%;
+    right: 16px;
+    transform: translate(0, -50%);
+}

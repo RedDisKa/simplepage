@@ -22,10 +22,12 @@ $light-grey30: rgba(165, 167, 171, .3);
 $lightest-grey: #ECF0F4;
 $white: #FFFFFF;
 $blue: #046EFF;
+$dark-blue: #005EDE;
 
 // font sizes
 $font-size-extra-small: 10px;
 $font-size-small: 11px;
+$font-size-smaller: 12px;
 $font-size-regular: 13px;
 $font-size-medium: 16px;
 $font-size-large: 20px;
@@ -71,4 +73,10 @@ $font-size-large: 20px;
     font-size: $font-size-small;
     line-height: 17px;
     text-transform: uppercase;
+}
+
+%item {
+    font-family: Poppins-SemiBold;
+    font-size: $font-size-smaller;
+    line-height: 18px;
 }

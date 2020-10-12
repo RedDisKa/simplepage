@@ -1,0 +1,114 @@
+@import '../../../../global.scss';
+
+.drag_and_drop_item {
+    width: 210px;
+    height: 35px;
+    position: relative;
+
+    &.active {
+        & > .start_dot, .end_dot {
+            background-color: $blue;
+            border-color: $dark-blue;
+        }
+
+        & > .item_body {
+            background-color: $blue;
+        }
+
+        & > .divider_input, .divider_output {
+            background-color: $dark-blue;
+        }
+
+        & > .item_title_input, .item_title_output {
+            color: $white;
+        }
+    }
+
+    &.on_desc {
+        & > .start_dot, .end_dot {
+            background-color: $light-grey;
+        }
+    }
+}
+
+%dot {
+    width: 10px;
+    height: 10px;
+    background-color: $button-grey;
+    border: 1px $dark-grey solid;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.start_dot {
+    @extend %dot;
+    left: 0;
+}
+
+.end_dot {
+    @extend %dot;
+    right: 0;
+}
+
+.item_body {
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 100%;
+    background-color: $button-grey;
+    border-radius: 4px;
+}
+
+%divider {
+    width: 1px;
+    position: absolute;
+    background-color: $dark-grey;
+    top: 0;
+    bottom: 0;
+}
+
+.divider_input {
+    @extend %divider;
+    left: 41px;
+}
+
+.divider_output {
+    @extend %divider;
+    left: 168px;
+}
+
+%item_icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.item_icon_input {
+    @extend %item_icon;
+    left: 16px;
+}
+
+.item_icon_output {
+    @extend %item_icon;
+    right: 16px;
+    padding-top: 1px;
+}
+
+%item_title {
+    @extend %item;
+    color: $light-grey;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.item_title_input {
+    @extend %item_title;
+    left: 52px;
+}
+
+.item_title_output {
+    @extend %item_title;
+    left: 20px;
+}
