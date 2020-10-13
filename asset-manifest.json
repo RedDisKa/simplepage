@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/simplepage/static/css/main.423b20bb.chunk.css",
+    "main.js": "/simplepage/static/js/main.c1b19b43.chunk.js",
+    "main.js.map": "/simplepage/static/js/main.c1b19b43.chunk.js.map",
+    "runtime-main.js": "/simplepage/static/js/runtime-main.d28ef835.js",
+    "runtime-main.js.map": "/simplepage/static/js/runtime-main.d28ef835.js.map",
+    "static/js/2.dbfc0308.chunk.js": "/simplepage/static/js/2.dbfc0308.chunk.js",
+    "static/js/2.dbfc0308.chunk.js.map": "/simplepage/static/js/2.dbfc0308.chunk.js.map",
+    "index.html": "/simplepage/index.html",
+    "precache-manifest.486a3012292092246245fe8f327f63d7.js": "/simplepage/precache-manifest.486a3012292092246245fe8f327f63d7.js",
+    "service-worker.js": "/simplepage/service-worker.js",
+    "static/css/main.423b20bb.chunk.css.map": "/simplepage/static/css/main.423b20bb.chunk.css.map",
+    "static/js/2.dbfc0308.chunk.js.LICENSE.txt": "/simplepage/static/js/2.dbfc0308.chunk.js.LICENSE.txt",
+    "static/media/app.module.scss": "/simplepage/static/media/Poppins-SemiBold.4cdacb8f.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d28ef835.js",
+    "static/js/2.dbfc0308.chunk.js",
+    "static/css/main.423b20bb.chunk.css",
+    "static/js/main.c1b19b43.chunk.js"
+  ]
+}
