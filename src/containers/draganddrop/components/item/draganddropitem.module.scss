@@ -6,6 +6,8 @@
     position: relative;
 
     &.active {
+        background-color: inherit;
+
         & > .start_dot, .end_dot {
             background-color: $blue;
             border-color: $dark-blue;
@@ -111,4 +113,11 @@
 .item_title_output {
     @extend %item_title;
     left: 20px;
+}
+
+.dragging_item {
+    min-width: 207px;
+    min-height: 33px;
+    background-color: $darkest-grey30;
+    border: 1px dashed $border-grey;
 }
