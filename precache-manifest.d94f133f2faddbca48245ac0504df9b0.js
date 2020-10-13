@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5feef7c5cf6e7c42e480a8aaa194df57",
+    "revision": "c976975bcb55d40229ce7e88c2098e29",
     "url": "/simplepage/index.html"
   },
   {
-    "revision": "367365ae2a5f1f3d2585",
-    "url": "/simplepage/static/css/main.18ae8fcb.chunk.css"
+    "revision": "b88f336d42a921ba4024",
+    "url": "/simplepage/static/css/main.50995ded.chunk.css"
   },
   {
-    "revision": "0bdd47b88ecf87070ce2",
-    "url": "/simplepage/static/js/2.6b78a115.chunk.js"
+    "revision": "9cd1b82897a4d47c06b3",
+    "url": "/simplepage/static/js/2.4c90fd34.chunk.js"
   },
   {
-    "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/simplepage/static/js/2.6b78a115.chunk.js.LICENSE.txt"
+    "revision": "fae377d30f2a087ba5c4f2f1d9c0d180",
+    "url": "/simplepage/static/js/2.4c90fd34.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "367365ae2a5f1f3d2585",
-    "url": "/simplepage/static/js/main.06a30afb.chunk.js"
+    "revision": "b88f336d42a921ba4024",
+    "url": "/simplepage/static/js/main.4383ba52.chunk.js"
   },
   {
     "revision": "0d700cfac28b97c77115",
