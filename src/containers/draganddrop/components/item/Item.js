@@ -7,7 +7,7 @@ import outputIconActive from '../../../../resources/outputIconActive.png'
 import classnames from 'classnames'
 import { PortWidget } from '@projectstorm/react-diagrams'
 
-export const Item = ({id, title, output, active, onDesc, engine, node, ref}) => {
+export const Item = ({id, title, output, active, onDesc, engine, node, ref, color}) => {
 
     return (
         <div className={classnames(styles.drag_and_drop_item, onDesc ? styles.on_desc : (active && styles.active))} ref={ref}>
@@ -15,13 +15,19 @@ export const Item = ({id, title, output, active, onDesc, engine, node, ref}) => 
             {!node && <div className={styles.start_dot} />}
             {node && <PortWidget className={styles.end_dot} engine={engine} port={node.getPort('out')} />}
             {!node && <div className={styles.end_dot} />}
-            <div className={styles.item_body} />
-            <img 
-                className={output ? (styles.item_icon_output) : styles.item_icon_input} 
-                src={output ? (active ? outputIconActive : outputIcon) : (active ? inputIconActive : inputIcon)}
-                alt=""
-            />
-            <p className={output ? styles.item_title_output : styles.item_title_input}>{title}</p>
+            <div className={classnames(styles.item_body, output && styles.output)}>
+                {!output && <img 
+                    className={styles.item_icon_input} 
+                    src={active ? inputIconActive : inputIcon}
+                    alt=""
+                />}
+                <p className={output ? styles.item_title_output : styles.item_title_input} style={{color: color}}>{title}</p>
+                {output && <img 
+                    className={output ? (styles.item_icon_output) : styles.item_icon_input} 
+                    src={active ? outputIconActive : outputIcon}
+                    alt=""
+                />}
+            </div>
             <div className={output ? styles.divider_output : styles.divider_input} />
         </div>
     )

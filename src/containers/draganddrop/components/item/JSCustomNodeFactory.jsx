@@ -13,6 +13,13 @@ export class JSCustomNodeFactory extends AbstractReactFactory {
 	}
 
 	generateReactWidget(event) {
-		return <Item engine={this.engine} node={event.model} title={event.model.options.title} output={event.model.options.output} onDesc={true} />;
+		return <Item 
+			engine={this.engine} 
+			node={event.model} 
+			title={event.model.options.title} 
+			output={event.model.options.output} 
+			onDesc={true} 
+			color={event.model.options.color || '#A5A7AB'} 
+		/>;
 	}
 }

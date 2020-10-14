@@ -22,7 +22,7 @@ export const CustomDragLayer = () => {
     const renderItem = () => {
         switch (itemType) {
             case ItemTypes.ITEM:
-                return <Item title={item.title} active={true} />
+                return <Item title={item.title} active={true} output={item.output} />
             default:
                 return null
         }

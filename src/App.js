@@ -12,9 +12,9 @@ function App() {
             <DndProvider backend={HTML5Backend}>
                 <div className={styles.app}>
                     <Switch>
-                        <Route path="/main" component={MainPage} exact />
+                        <Route path={process.env.PUBLIC_URL + "/main"} component={MainPage} exact />
                         <Route
-                            path="/drag-and-drop"
+                            path={process.env.PUBLIC_URL + "/drag-and-drop"}
                             component={DragAndDropPage}
                             exact
                         />
