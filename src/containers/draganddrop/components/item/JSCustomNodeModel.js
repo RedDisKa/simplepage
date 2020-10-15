@@ -11,6 +11,9 @@ export class JSCustomNodeModel extends NodeModel {
 		});
 		this.color = options.color || { options: 'red' };
 
+		console.log("in model")
+		console.log(options.selectItem)
+
 		// setup an in and out port
 		this.addPort(
 			new DefaultPortModel({

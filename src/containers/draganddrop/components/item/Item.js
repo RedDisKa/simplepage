@@ -7,10 +7,15 @@ import outputIconActive from '../../../../resources/outputIconActive.png'
 import classnames from 'classnames'
 import { PortWidget } from '@projectstorm/react-diagrams'
 
-export const Item = ({id, title, output, active, onDesc, engine, node, ref, color}) => {
+export const Item = ({id, title, output, active, onDesc, engine, node, ref, color, selectItem}) => {
 
     return (
-        <div className={classnames(styles.drag_and_drop_item, onDesc ? styles.on_desc : (active && styles.active))} ref={ref}>
+        <div className={classnames(styles.drag_and_drop_item, onDesc ? styles.on_desc : (active && styles.active))} ref={ref} onClick={() => {
+                console.log("click")
+                console.log(selectItem)
+                selectItem && selectItem(title)
+        }
+            }>
             {node && <PortWidget className={styles.start_dot} engine={engine} port={node.getPort('in')} />}
             {!node && <div className={styles.start_dot} />}
             {node && <PortWidget className={styles.end_dot} engine={engine} port={node.getPort('out')} />}

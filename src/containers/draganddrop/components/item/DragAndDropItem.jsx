@@ -4,7 +4,7 @@ import { Item } from './Item'
 import { ItemTypes } from '../../../../contstants/ItemTypes';
 import styles from './draganddropitem.module.scss'
 
-export const DragAndDropItem = ({id, title, output}) => {
+export const DragAndDropItem = ({id, title, output, selectItem}) => {
 
     const [{ isDragging }, drag] = useDrag({
         item: { id, type: ItemTypes.ITEM, title, output },
@@ -22,7 +22,7 @@ export const DragAndDropItem = ({id, title, output}) => {
 
     return (
         <div ref={drag} className={isDragging ? styles.dragging_item : null}>
-            {!isDragging && <Item active={isDragging} id={id} title={title} output={output} />}
+            {!isDragging && <Item active={isDragging} id={id} title={title} output={output} selectItem={selectItem} />}
         </div>
     )
 }

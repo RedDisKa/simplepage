@@ -71,6 +71,12 @@
     color: $light-grey;
 }
 
+.info {
+    @extend %regular;
+    color: $light-grey;
+    margin-top: 8px;
+}
+
 %dropdown {
     @extend %small;
     color: $light-grey;

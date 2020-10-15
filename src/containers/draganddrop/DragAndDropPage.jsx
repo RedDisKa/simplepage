@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DragAndDropItem } from './components/item/DragAndDropItem'
 import styles from './draganddroppage.module.scss'
 import addIcon from '../../resources/addIcon.png'
@@ -40,51 +40,6 @@ const startOutputs = [
     { id: '20', title: 'Debug' },
 ]
 
-const startNodes = [
-    {
-        id: '21',
-        color: '#DABDD7',
-        title: 'node sensor',
-        x: 239,
-        y: 493,
-    },
-    {
-        id: '22',
-        color: '#E3BD46',
-        title: 'json',
-        x: 476,
-        y: 409,
-    },
-    {
-        id: '23',
-        color: '#E3BD46',
-        title: 'switch',
-        x: 476,
-        y: 493,
-    },
-    {
-        id: '24',
-        color: '#7DAB7F',
-        title: 'msg.payload',
-        x: 675,
-        y: 458,
-    },
-    {
-        id: '25',
-        color: '#E2D954',
-        title: 'Set msg.payload.note',
-        x: 675,
-        y: 563,
-    },
-    {
-        id: '26',
-        color: '#7DAB7F',
-        title: 'msg.payload',
-        x: 958,
-        y: 563,
-    },
-]
-
 const startLinks = [
     {
         sourceNode: '21',
@@ -108,38 +63,98 @@ const startLinks = [
     },
 ]
 
-const createNewEngine = () => {
-    const diagramEngine = createEngine({ registerDefaultZoomCanvasAction: false })
-    diagramEngine.getNodeFactories().registerFactory(new JSCustomNodeFactory())
-    const model = new DiagramModel()
-    diagramEngine.setModel(model)
-
-
-    startNodes.forEach((node) => {
-        const nodeModel = new JSCustomNodeModel(node)
-        nodeModel.setPosition(node.x, node.y)
-        diagramEngine.getModel().addNode(nodeModel)
-    })
-
-    startLinks.forEach((link) => {
-        const linkModel = new DefaultLinkModel()
-        const node1 = diagramEngine.getModel().getNode(link.sourceNode)
-        const node2 = diagramEngine.getModel().getNode(link.targetNode)
-        linkModel.setSourcePort(node1.getPort('out'))
-        linkModel.setTargetPort(node2.getPort('in'))
-        diagramEngine.getModel().addLink(linkModel)
-    })
-
-    return diagramEngine
-}
-
-const engine = createNewEngine()
-
 export const DragAndDropPage = () => {
+    const selectItem = (title) => {
+        console.log("title = " + title)
+        setSelectedItemName(title)
+    }
+
+    const [engine, setEngine] = useState()
+
+    const [model, setModel] = useState()
+
+    useEffect(() => {
+        const startNodes = [
+            {
+                id: '21',
+                color: '#DABDD7',
+                title: 'node sensor',
+                x: 239,
+                y: 493,
+                selectItem: selectItem
+            },
+            {
+                id: '22',
+                color: '#E3BD46',
+                title: 'json',
+                x: 476,
+                y: 409,
+                selectItem: selectItem
+            },
+            {
+                id: '23',
+                color: '#E3BD46',
+                title: 'switch',
+                x: 476,
+                y: 493,
+                selectItem: selectItem
+            },
+            {
+                id: '24',
+                color: '#7DAB7F',
+                title: 'msg.payload',
+                x: 675,
+                y: 458,
+                selectItem: selectItem
+            },
+            {
+                id: '25',
+                color: '#E2D954',
+                title: 'Set msg.payload.note',
+                x: 675,
+                y: 563,
+                selectItem: selectItem
+            },
+            {
+                id: '26',
+                color: '#7DAB7F',
+                title: 'msg.payload',
+                x: 958,
+                y: 563,
+                selectItem: selectItem
+            },
+        ]
+
+        const diagramEngine = createEngine({ registerDefaultZoomCanvasAction: false })
+        diagramEngine.getNodeFactories().registerFactory(new JSCustomNodeFactory())
+        const model = new DiagramModel()
+        diagramEngine.setModel(model)
+    
+    
+        startNodes.forEach((node) => {
+            const nodeModel = new JSCustomNodeModel(node)
+            nodeModel.setPosition(node.x, node.y)
+            diagramEngine.getModel().addNode(nodeModel)
+        })
+    
+        startLinks.forEach((link) => {
+            const linkModel = new DefaultLinkModel()
+            const node1 = diagramEngine.getModel().getNode(link.sourceNode)
+            const node2 = diagramEngine.getModel().getNode(link.targetNode)
+            linkModel.setSourcePort(node1.getPort('out'))
+            linkModel.setTargetPort(node2.getPort('in'))
+            diagramEngine.getModel().addLink(linkModel)
+        })
+
+        setEngine(diagramEngine)
+        setModel(diagramEngine.getModel())
+
+    }, [])
+
     const [inputs, setInputs] = useState(startInputs.slice(0))
     const [outputs, setOutputs] = useState(startOutputs.slice(0))
 
-    const [model, ] = useState(engine.getModel())
+    const [selectedItemName, setSelectedItemName] = useState("")
 
     const onAddInput = () => {
         const newInputs = inputs.slice(0)
@@ -159,7 +174,7 @@ export const DragAndDropPage = () => {
         if (index >= 0) {
             const item = inputs[index]
 
-            const node = { x, y, id, color: null, title: item.title }
+            const node = { x, y, id, color: null, title: item.title, selectItem: selectItem }
             const nodeModel = new JSCustomNodeModel(node)
             nodeModel.setPosition(node.x, node.y)
             model.addNode(nodeModel)
@@ -179,6 +194,7 @@ export const DragAndDropPage = () => {
                     color: null,
                     title: item.title,
                     output: true,
+                    selectItem: selectItem
                 }
                 const nodeModel = new JSCustomNodeModel(node)
                 nodeModel.setPosition(node.x, node.y)
@@ -236,6 +252,7 @@ export const DragAndDropPage = () => {
                                     id={item.id}
                                     title={item.title}
                                     key={item.id}
+                                    selectItem={selectItem}
                                 />
                             ))}
                         </div>
@@ -255,15 +272,17 @@ export const DragAndDropPage = () => {
                                     title={item.title}
                                     output={true}
                                     key={item.id}
+                                    selectItem={selectItem}
                                 />
                             ))}
                         </div>
                     </div>
                     <div ref={drop} className={styles.desc}>
-                        <CanvasWidget className={styles.drag_and_drop_desc} engine={engine} />
+                        {engine && <CanvasWidget className={styles.drag_and_drop_desc} engine={engine} />}
                     </div>
                     <div className={styles.info_panel}>
                         <p className={styles.title}>info</p>
+                        <p className={styles.info}>{selectedItemName}</p>
                     </div>
                 </div>
             </div>

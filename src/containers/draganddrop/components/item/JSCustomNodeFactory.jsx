@@ -13,6 +13,7 @@ export class JSCustomNodeFactory extends AbstractReactFactory {
 	}
 
 	generateReactWidget(event) {
+		console.log(event.model.options)
 		return <Item 
 			engine={this.engine} 
 			node={event.model} 
@@ -20,6 +21,7 @@ export class JSCustomNodeFactory extends AbstractReactFactory {
 			output={event.model.options.output} 
 			onDesc={true} 
 			color={event.model.options.color || '#A5A7AB'} 
+			selectItem={event.model.options.selectItem}
 		/>;
 	}
 }
